@@ -1,32 +1,33 @@
-<!-- the `this` keyword refers to an object that is executng the current piece of code.-->
-
+<!-- define classes and create objects -->
 <script>
     // create parent class
-    class Car{
-        constructor(model, name){
-            this.model = model;
-            this.name = name;
-        }
-        start(){
-            console.log(this.name);
-        }
-        end(){
+    class Car {
+      constructor(model, name) {
+        this.model = model;
+        this.name = name;
+      }
+      start() {
+        console.log(this.name);
+      }
+      end() {
         console.log('Car Stopped')
+      }
     }
-        
+  
+    // create child class
+    //  Use the keyword extends to inherit the parent class 
+    class ElectricCar extends Car {
+      start() {
+        super.start();
+        super.end();
+        this.dashboard();
+      }
+      dashboard() {
+        console.log('Displaying dashboard...')
+      }
     }
-   
-   // create child class
-   //  Use the keyword extends to inherit the parent class 
-    class ElectricCar extends Car{
-        start(){
-            super.start();
-            super.end();
-            this.dashboard();
-        }
-
-    }
-
+  
     evCar = new ElectricCar('Tesla', 'A320')
     evCar.start();
-</script>
+  </script>
+  
